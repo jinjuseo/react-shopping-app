@@ -1,0 +1,9 @@
+@use "../../styles/mixins/" as m;
+.nav {
+  @include m.flex(start, center, row);
+
+  .buttons {
+    @include m.flex(end, center, row);
+    column-gap: 8px;
+  }
+}

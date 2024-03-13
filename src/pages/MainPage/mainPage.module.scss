@@ -1,0 +1,50 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+
+.products {
+  @include m.flex(center, center, column);
+  padding: 60px;
+  row-gap: 28px;
+  .categoriesContainer {
+    @include m.flex(center, center, row);
+    column-gap: 40px;
+    flex-wrap: wrap;
+    .category {
+      @include m.flex(center, center, row);
+      padding: 12px 60px;
+      border: 1px solid c.$C_BLACK;
+      color: c.$C_BLACK;
+      background-color: c.$C_WHITE;
+      border-radius: 4px;
+      font-size: 20px;
+      font-weight: 600;
+
+      &:focus,
+      &:hover {
+        background-color: c.$C_GRAY;
+        color: c.$C_WHITE;
+        border-color: transparent;
+      }
+    }
+  }
+
+  .container {
+    @include m.flex(center, center, column);
+    row-gap: 12px;
+    .productsContainer {
+      @include m.flex(space-between, center, row);
+      column-gap: 4px;
+      row-gap: 40px;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 798px) {
+  // .categoriesContainer {
+  //   // @include m.flex(space-beween, center, row);
+  //   column-gap: 40px;
+  //   row-gap: 40px;
+  //   flex-wrap: wrap;
+  // }
+}
