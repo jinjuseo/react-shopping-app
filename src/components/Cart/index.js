@@ -1,20 +1,7 @@
 import React from "react";
 import styles from "./cart.module.scss";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-const Cart = ({ product, setUserItems }) => {
-  const onClickPlusBtn = () => {
-    setUserItems((prev) => {
-      if (prev.id !== product.id) {
-        return prev;
-      }
-    });
-    // const newProduct = {
-    //   ...product,
-    //   count: product.count + 1,
-    // };
-    // setUserItems((prev) => [...prev, newProduct]);
-  };
-  const onClickMinusBtn = () => {};
+const Cart = ({ product, onClickCountBtn, onClickDeleteBtn }) => {
   return (
     <div className={`${styles.cart} w-full flex`}>
       <div className={`${styles.imgContainer}`}>
@@ -32,15 +19,28 @@ const Cart = ({ product, setUserItems }) => {
         } = $ ${product?.price * product?.count}`}</div>
       </div>
       <div className={`${styles.countButtons}`}>
-        <button className={`${styles.countButton}`}>
+        <button
+          onClick={() => {
+            if (product.count > 1) onClickCountBtn(product, "minus");
+          }}
+          className={`${styles.countButton}`}
+        >
           {product?.count > 1 ? "-" : ""}
         </button>
         <button className={`${styles.countButton}`}>{product?.count}</button>
-        <button onClick={onClickPlusBtn} className={`${styles.countButton}`}>
+        <button
+          onClick={() => {
+            onClickCountBtn(product, "plus");
+          }}
+          className={`${styles.countButton}`}
+        >
           +
         </button>
       </div>
-      <button className={styles.deleteBtn}>
+      <button
+        onClick={() => onClickDeleteBtn(product)}
+        className={styles.deleteBtn}
+      >
         <DeleteOutlineOutlinedIcon />
       </button>
     </div>
