@@ -1,33 +1,29 @@
 @use "../../styles/mixins/" as m;
 @use "../../styles/constants/" as c;
-.login {
+
+.logout {
   //   @include m.flex(center, center, row);
   //   row-gap: 12px;
   //   column-gap: 12px;
   //   background-color: c.$C_WHITE;
-  .form {
+
+  .signout {
     @include m.flex(space-evenly, center, column);
     width: 500px;
-    height: 360px;
-    row-gap: 12px;
-
-    .inputContainer {
-      width: 80%;
-
-      .input {
-        padding: 0 12px;
-        height: 40px;
-        border-radius: 4px;
-        &:focus {
-          outline: none;
-        }
-      }
+    height: 400px;
+    > svg {
+      width: 100px;
+      height: 100px;
     }
-    .submitBtn {
+    > button {
+      @include m.flex(center, center, row);
+
       width: 80%;
       height: 52px;
-
-      background-color: c.$C_GRAY;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: larger;
+      background-color: c.$C_PRIMARY;
       color: c.$C_WHITE;
     }
   }

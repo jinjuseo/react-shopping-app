@@ -19,7 +19,6 @@
       font-size: 20px;
       font-weight: 600;
 
-      &:focus,
       &:hover {
         background-color: c.$C_GRAY;
         color: c.$C_WHITE;
@@ -47,4 +46,9 @@
   //   row-gap: 40px;
   //   flex-wrap: wrap;
   // }
+}
+.active {
+  background-color: c.$C_GRAY !important;
+  color: c.$C_WHITE !important;
+  border-color: transparent !important;
 }

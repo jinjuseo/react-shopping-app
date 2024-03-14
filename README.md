@@ -12,7 +12,7 @@
 - React
 - React Hooks
 - Redux
-- Firebase
+- Firebase - Authentication
 - JavaScript / TypeScript
 - HTML/CSS
 

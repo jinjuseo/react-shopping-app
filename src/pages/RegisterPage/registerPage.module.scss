@@ -1,0 +1,80 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+
+.register {
+  //   @include m.flex(center, center, row);
+  //   row-gap: 12px;
+  //   column-gap: 12px;
+  //   background-color: c.$C_WHITE;
+  .form {
+    @include m.flex(space-evenly, center, column);
+    width: 500px;
+    height: 400px;
+    row-gap: 12px;
+
+    .inputContainer {
+      width: 80%;
+      .inputBox {
+        @include m.flex(space-between, center, row);
+        // column-gap: 4px;
+        > label {
+          // @include m.flex(center, center, column);
+          height: 40px;
+          font-size: 16px;
+        }
+        > div {
+          width: 280px !important;
+          .input {
+            padding: 0 12px;
+            height: 40px;
+            border-radius: 2px;
+            &:focus {
+              outline: none;
+              border: 1px solid c.$C_PRIMARY;
+              background-color: c.$C_WHITE;
+            }
+          }
+          .errorMsg {
+            padding-left: 4px;
+            color: c.$C_RED;
+            font-size: 12px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .submitBtn {
+      width: 80%;
+      height: 52px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: larger;
+      background-color: c.$C_PRIMARY;
+      color: c.$C_WHITE;
+    }
+  }
+  .signup {
+    @include m.flex(space-evenly, center, column);
+    width: 500px;
+    height: 400px;
+    > svg {
+      width: 100px;
+      height: 100px;
+    }
+    > button {
+      @include m.flex(center, center, row);
+
+      width: 80%;
+      height: 52px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: larger;
+      background-color: c.$C_PRIMARY;
+      color: c.$C_WHITE;
+    }
+  }
+}
+
+.errorInput:focus {
+  border: 1px solid c.$C_RED !important;
+}

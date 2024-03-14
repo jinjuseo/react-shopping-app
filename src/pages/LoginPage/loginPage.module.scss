@@ -1,0 +1,36 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+.login {
+  //   @include m.flex(center, center, row);
+  //   row-gap: 12px;
+  //   column-gap: 12px;
+  //   background-color: c.$C_WHITE;
+  .form {
+    @include m.flex(space-evenly, center, column);
+    width: 500px;
+    height: 400px;
+    row-gap: 12px;
+
+    .inputContainer {
+      width: 80%;
+
+      .input {
+        padding: 0 12px;
+        height: 40px;
+        border-radius: 2px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .submitBtn {
+      width: 80%;
+      height: 52px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: larger;
+      background-color: c.$C_SECONDARY;
+      color: c.$C_WHITE;
+    }
+  }
+}

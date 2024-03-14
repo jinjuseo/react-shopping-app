@@ -3,13 +3,28 @@ import styles from "./mainPage.module.scss";
 import { Product } from "../../components";
 import { axios } from "../../api/axios";
 import requests from "../../api/requests";
-
+const getFetchType = (type) => {
+  switch (type) {
+    case "all":
+      return requests.fetchAll;
+    case "electronics":
+      return requests.fetchElectronics;
+    case "jewelery":
+      return requests.fetchJewelery;
+    case "mans":
+      return requests.fetchMans;
+    case "womens":
+      return requests.fetchWomens;
+    default:
+      return requests.fetchAll;
+  }
+};
 const MainPage = () => {
-  const [type, setType] = useState(requests.fetchAll);
+  const [type, setType] = useState("all");
   const [products, setProducts] = useState([]);
 
   const fetchData = async () => {
-    const response = await axios.get(type);
+    const response = await axios.get(getFetchType(type));
     setProducts(response.data);
   };
   useEffect(() => {
@@ -21,41 +36,49 @@ const MainPage = () => {
       <div className={`${styles.categoriesContainer}`}>
         <button
           onClick={() => {
-            setType(requests.fetchAll);
+            setType("all");
           }}
-          className={styles.category}
+          className={`${styles.category} ${type === "all" && styles.active}`}
         >
           모두{" "}
         </button>
         <button
           onClick={() => {
-            setType(requests.fetchElectronics);
+            setType("electronics");
           }}
-          className={styles.category}
+          // className={styles.category}
+          className={`${styles.category} ${
+            type === "electronics" && styles.active
+          }`}
         >
           전자제품
         </button>
         <button
           onClick={() => {
-            setType(requests.fetchJewelery);
+            setType("jewelery");
           }}
-          className={styles.category}
+          // className={styles.category}
+          className={`${styles.category} ${
+            type === "jewelery" && styles.active
+          }`}
         >
           쥬얼리
         </button>
         <button
           onClick={() => {
-            setType(requests.fetchMans);
+            setType("mans");
           }}
-          className={styles.category}
+          // className={styles.category}
+          className={`${styles.category} ${type === "mans" && styles.active}`}
         >
           남성의류
         </button>
         <button
           onClick={() => {
-            setType(requests.fetchWomens);
+            setType("womens");
           }}
-          className={styles.category}
+          // className={styles.category}
+          className={`${styles.category} ${type === "womens" && styles.active}`}
         >
           여성의류
         </button>
@@ -65,7 +88,7 @@ const MainPage = () => {
         <div className={`${styles.productsContainer} w-full`}>
           {products &&
             products.map((product) => (
-              <Product key={product.id} {...product} />
+              <Product key={product.id} product={product} />
             ))}
         </div>
       </div>

@@ -1,0 +1,11 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+.cart {
+  @include m.flex(center, center, column);
+  padding: 60px;
+  row-gap: 28px;
+
+  .totalPrice {
+    // background-color: c.$C_;
+  }
+}

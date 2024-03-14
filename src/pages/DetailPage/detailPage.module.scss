@@ -9,9 +9,10 @@
     width: 50%;
     @include m.flex(center, center, row);
     img {
-      object-fit: cover;
+      object-fit: contain;
       width: 80%;
-      max-width: 500px;
+      max-width: 400px;
+      // max-height: 500px;
     }
   }
   .productDetails {
