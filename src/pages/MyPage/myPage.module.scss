@@ -1,0 +1,11 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+.myPage {
+  padding: 60px;
+  @include m.flex(center, center, column);
+  row-gap: 28px;
+  > svg {
+    width: 300px;
+    height: 300px;
+  }
+}

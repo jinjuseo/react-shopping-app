@@ -1,0 +1,17 @@
+@use "../../styles/mixins/" as m;
+@use "../../styles/constants/" as c;
+.cart {
+  cursor: default;
+  @include m.flex(center, center, column);
+  width: 440px;
+  height: 300px;
+  padding: 4px 16px;
+  row-gap: 8px;
+  // overflow: auto;
+  background-color: c.$C_WHITE;
+
+  .cartIcon {
+    width: 100px;
+    height: 100px;
+  }
+}

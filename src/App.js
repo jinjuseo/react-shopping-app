@@ -10,6 +10,7 @@ import {
   RegisterPage,
   LogoutPage,
   CartPage,
+  MyPage,
 } from "./pages/";
 function App() {
   // console.log(authService);
@@ -22,6 +23,7 @@ function App() {
           <Route path="product/:id" element={<DetailPage />} />
           {/* Cart */}
           <Route path="cart" element={<CartPage />} />
+          <Route path="mypage" element={<MyPage />} />
           {/* Auth */}
           <Route path="login" element={<LoginPage />} />
           <Route path="logout" element={<LogoutPage />} />

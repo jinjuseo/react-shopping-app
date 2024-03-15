@@ -1,14 +1,14 @@
-@use "../../styles/mixins/" as m;
-@use "../../styles/constants/" as c;
+@use "../../../styles/mixins/" as m;
+@use "../../../styles/constants/" as c;
 .cart {
-  padding: 12px 0;
-  column-gap: 20px;
+  padding: 4px 0;
+  column-gap: 8px;
   max-height: 160px;
   justify-content: space-between;
   border-bottom: 2px solid c.$C_LIGHTGRAY;
   .imgContainer {
-    width: 8%;
-    @include m.flex(center, center, row);
+    width: 24%;
+    @include m.flex(flex-start, center, row);
     img {
       object-fit: contain;
       height: 100%;
@@ -18,25 +18,16 @@
   }
   .productDetails {
     @include m.flex(space-evenly, start, column);
-    width: 30%;
+    width: 72%;
     height: 100%;
     row-gap: 12px;
   }
-  .countButtons {
-    @include m.flex(center, center, row);
-    column-gap: 8px;
-    width: 60%;
-    .countButton {
-      width: 40px;
-      height: 40px;
-      border: 1px solid c.$C_LIGHTGRAY;
-    }
-  }
+
   .deleteBtn {
     @include m.flex(start, center, column);
     > svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       color: c.$C_LIGHTGRAY;
     }
   }
