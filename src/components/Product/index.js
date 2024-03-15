@@ -14,13 +14,13 @@ const Product = ({ product }) => {
   const onClick = () => {
     navigate(`/product/${product.id}`, {
       state: {
-        id: `${product.id}`,
-        image: `${product.image}`,
-        rating: `${product.rating}`,
-        category: `${product.category}`,
-        description: `${product.description}`,
-        title: `${product.title}`,
-        price: `${product.price}`,
+        id: product.id,
+        image: product.image,
+        rating: { ...product.rating },
+        category: product.category,
+        description: product.description,
+        title: product.title,
+        price: product.price,
       },
       // state: { ...product },
     });

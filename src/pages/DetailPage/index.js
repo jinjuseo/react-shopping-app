@@ -3,13 +3,42 @@ import { useLocation } from "react-router-dom";
 // import { axios } from "../../api/axios";
 // import requests from "../../api/requests";
 import styles from "./detailPage.module.scss";
+import { myItems, meState } from "../../recoil";
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { InsertChart } from "@mui/icons-material";
 
 const DetailPage = () => {
+  const user = useRecoilValue(meState);
+  const navigate = useNavigate();
   const location = useLocation();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({});
+  const [userItems, setUserItems] = useRecoilState(myItems);
+  const [inCart, setInCart] = useState(false);
   useEffect(() => {
     setProduct({ ...location.state });
   }, [location]);
+  useEffect(() => {
+    isInCart();
+  }, [product, userItems]);
+
+  const onClickBtn = () => {
+    if (user) {
+      if (!inCart) {
+        setUserItems((prev) => [...prev, { ...product, count: 1 }]);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+  const isInCart = () => {
+    const filtered = userItems.filter((item) => item.id === product.id);
+    if (filtered.length > 0) {
+      setInCart(true);
+    } else {
+      setInCart(false);
+    }
+  };
 
   return (
     <section className={`${styles.section} w-full`}>
@@ -28,8 +57,17 @@ const DetailPage = () => {
           {product?.description}
         </div>
         <div className={styles.buttons}>
-          <button className={styles.button}>장바구니에 담긴 상품</button>
-          <button className={styles.button}>장바구니로 이동</button>
+          {inCart ? (
+            <button className={styles.button}>장바구니에 담긴 상품</button>
+          ) : (
+            <button onClick={onClickBtn} className={styles.cartBtn}>
+              장바구니에 담기
+            </button>
+          )}
+
+          <button onClick={() => navigate("/cart")} className={styles.button}>
+            장바구니로 이동
+          </button>
         </div>
       </div>
     </section>

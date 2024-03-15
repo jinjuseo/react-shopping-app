@@ -49,10 +49,7 @@ const CartPage = () => {
             <div className="text-center w-48 p-4 bg-yellow-500 text-lg font-bold">{`합계 : $ ${totalPrice().toFixed(
               2
             )}`}</div>
-            <button
-              onClick={onClickPayBtn}
-              className="flex justify-center w-32 p-4 text-gray-400 font-bold border border-gray-400 border-2"
-            >
+            <button onClick={onClickPayBtn} className={styles.payBtn}>
               계산하기
             </button>
           </div>

@@ -9,4 +9,19 @@
     width: 300px;
     height: 300px;
   }
+  .payBtn {
+    //flex justify-center w-32 p-4 text-gray-400 font-bold border border-gray-400 border-2
+    @include m.flex(center, center, row);
+    // width: 140px;
+    font-size: 16px;
+    padding: 12px 32px;
+    font-weight: 600;
+    color: c.$C_GRAY;
+    border: 1px solid c.$C_GRAY;
+    &:hover {
+      background-color: c.$C_GRAY;
+      color: c.$C_WHITE;
+      border-color: transparent;
+    }
+  }
 }

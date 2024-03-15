@@ -10,9 +10,10 @@
     width: 24%;
     @include m.flex(flex-start, center, row);
     img {
+      text-align: center;
       object-fit: contain;
       height: 100%;
-      //   max-width: 80px;
+      max-width: 72px;
       // max-height: 500px;
     }
   }

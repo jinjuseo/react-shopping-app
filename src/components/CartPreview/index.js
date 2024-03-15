@@ -45,13 +45,11 @@ const CartPreview = ({ className, style, setShowPreview }) => {
         ))}
       </div>
       <div className="w-full flex justify-between gap-x-4">
-        <div className="text-center w-40 p-4 bg-yellow-500 text-lg font-bold">{`합계 : $ ${totalPrice().toFixed(
+        <div className="text-center w-40 p-3 bg-yellow-500 text-lg font-bold">{`합계 : $ ${totalPrice().toFixed(
           2
         )}`}</div>
         <Link to="/cart" onClick={() => setShowPreview(false)}>
-          <button className="flex justify-center w-36 p-4 text-gray-400 font-bold border border-gray-400 border-1">
-            장바구니로 이동
-          </button>
+          <button className={styles.cartBtn}>장바구니로 이동</button>
         </Link>
       </div>
     </section>

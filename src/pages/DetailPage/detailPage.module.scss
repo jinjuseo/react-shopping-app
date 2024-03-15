@@ -32,9 +32,21 @@
         background-color: c.$C_GRAY;
         color: c.$C_WHITE;
         font-weight: 600;
+        border: 1px solid transparent;
         // &:hover{
 
         // }
+      }
+      .cartBtn {
+        padding: 16px 40px;
+        border: 1px solid c.$C_GRAY;
+        color: c.$C_GRAY;
+        font-weight: 600;
+        &:hover {
+          background-color: c.$C_GRAY;
+          color: c.$C_WHITE;
+          border-color: transparent;
+        }
       }
     }
   }
